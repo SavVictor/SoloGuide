@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!--==========================
+        Intro Section
+     ============================-->
+      <section id="intro">
+        <div class="intro-container wow fadeIn">
+          <h1 class="mb-4 pb-0">Create Share Discuss</h1>
+          <p class="mb-4 pb-0">GUIDES BUILDS NEWS</p>
+          <a href="#speakers" class="about-btn scrollto">Find out more</a>
+        </div>
+      </section>
+
+    <main>
+    <!--=========RECENT GUIDES=============-->
+
+    <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Latest guides</h2>
+          <p>Here are the latest guides our users made</p>
+        </div>
+
+        <div class="row">
+            {% for article in articles %}
+            <!-- Guide -->
+              <div class="col-lg-4 col-md-6">
+                <div class="speaker">
+                  <img src="{{ article.image.url }}" alt="" class="img-fluid">
+                  <div class="details">
+                    <h3><a href="{{ article.get_absolute_url }}">{{ article.headline }}</a></h3>
+                    <p>{{ article.sub_headline }}</p>
+                  </div>
+                </div>
+              </div>
+            <!-- End of guide -->
+            {% empty %}
+			      <h3>No Featured Article at the Moment...</h3>
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+  <!--=========RECENT NEWS=============-->
+
+  <section id="news" class="wow fadeInUp">
+    <div class="news--style">
+        <div class="container">
+          <div class="section-header">
+            <h2>Latest News</h2>
+              <a class="twitter-timeline"
+                 data-theme="light"
+                 data-tweet-limit="2"
+                 data-width = "100%"
+                 style="margin-left: auto; margin-right: auto;"
+                 href="https://twitter.com/PlaySoLOnline?ref_src=twsrc%5Etfw">Tweets by PlaySoLOnline
+              </a>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+    </div>
+  </section>
+
+    </main>
+
+
+{% endblock %}

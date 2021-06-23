@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!--==========================
+    Intro Section
+    ============================-->
+    <section id="intro--article">
+      <div class="intro-container wow fadeIn">
+        <h1 class="mb-4 pb-0">Read the latest guides</h1>
+        <p class="mb-4 pb-0"></p>
+    </div>
+    </section>
+
+    <!-- start of post -->
+    <div class="post-container">
+        <img class="img-fix" src="{{ article.image.url }}">
+        <!-- start article details -->
+        <div class="article-info container">
+          <div class="article-info-content display-center">
+            <div class="display-center">
+              <img class="author-pic img--2" src="{{ article.author.profile_pic.url }}" alt="">
+              <h6 class="author--text">By {{ article.author }} on {{ article.publish|date:"D M Y" }}</h6>
+            </div>
+
+            <div class="article-meta">
+              {% for tag in article.tags.all %}
+              <span class="tag"><a href="#">{{ tag.name }}</a></span>
+              {% endfor %}
+              <a class="back-button" href="{% url 'blog:articles' %}">All Guides</a>
+            </div>
+          </div>
+        </div>
+        <!-- end of article details -->
+        <hr>
+        <h1 style="text-align: center">{{ article.headline }}</h1>
+        <h4 style="text-align: center">{{ article.sub_headline }}</h4>
+        <br>
+        <p>{{ article.body|safe }}</p>
+    </div>
+    <!-- end of post -->
+{% endblock %}

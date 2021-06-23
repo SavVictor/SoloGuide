@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!--==========================
+    Intro Section
+    ============================-->
+    <section id="intro--article">
+      <div class="intro-container wow fadeIn">
+        <h1 class="mb-4 pb-0">Read the latest guides</h1>
+        <p class="mb-4 pb-0"></p>
+    </div>
+    </section>
+
+    <div class = "container align-content-center">
+        <div class = "title">
+          <h2>Guides</h2>
+        </div>
+        <form method="GET">
+          <input type="text" id="query" name="query" class="textbox" placeholder="Search">
+          <button type = "submit" class="button">
+            <i class='bx bx-search'></i>
+          </button>
+        </form>
+        <div class="article-meta">
+            <a class="back-button" href="{% url 'blog:articles' %}">All Guides</a>
+            {% for tag in tags %}
+            <span class="tag"><a href="#">{{ tag.name }}</a></span>
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class = "featured-content">
+          {% for article in articles %}
+          <!-- item -->
+          <div class = "featured-item">
+            <div class = "featured-img">
+              <a href="{{ article.get_absolute_url }}">
+                <img class="img--1" src = "{{ article.image.url }}" alt = "">
+                <span><i class='bx bx-calendar-star'></i>{{ article.publish|date:"M Y" }}</span>
+                <span>{{ article.sub_headline }}</span>
+              </a>
+            </div>
+            <div class = "featured-title">
+              <a href = "{{ article.get_absolute_url }}">{{ article.headline }}</a>
+            </div>
+          </div>
+          <!-- end of item -->
+          {% empty %}
+                  <h3>No Article found...</h3>
+          {% endfor %}
+        </div>
+    </div>
+{% endblock %}
