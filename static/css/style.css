@@ -1547,6 +1547,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (min-width: 768px) {
+.twitter--content {
+    max-width: 100%;
+}
+
+@media (min-width: 576px) {
+.twitter--content {
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
   #contact .contact-address,
   #contact .contact-phone,
   #contact .contact-email {
@@ -1879,11 +1889,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .news--style{
   width: 100%;
-  height: 500px;
+  height: 700px;
   margin-right: auto;
   margin-left: auto;
 }
 
+.twitter--content{
+  width: 50%;
+  height: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: scroll;
+}
 
 /* INTRO EACH ARTICLE */
 
