@@ -5,21 +5,22 @@
     <!--==========================
     Intro Section
     ============================-->
-    <section id="intro--article">
+    <section id="intro--each"
+             style="background: url({{ article.image.url }}) top center; background-size: cover;">
       <div class="intro-container wow fadeIn">
-        <h1 class="mb-4 pb-0">Read the latest guides</h1>
-        <p class="mb-4 pb-0"></p>
+        <h1 class="mb-4 pb-0">{{ article.headline }}</h1>
+        <p class="mb-4 pb-0">{{ article.sub_headline }}</p>
     </div>
     </section>
 
     <!-- start of post -->
     <div class="post-container">
-        <img class="img-fix" src="{{ article.image.url }}">
+
         <!-- start article details -->
         <div class="article-info container">
           <div class="article-info-content display-center">
             <div class="display-center">
-              <img class="author-pic img--2" src="{{ article.author.profile_pic.url }}" alt="">
+              <img class="author-pic" src="{{ article.author.profile_pic.url }}" alt="">
               <h6 class="author--text">By {{ article.author }} on {{ article.publish|date:"D M Y" }}</h6>
             </div>
 
@@ -33,9 +34,6 @@
         </div>
         <!-- end of article details -->
         <hr>
-        <h1 style="text-align: center">{{ article.headline }}</h1>
-        <h4 style="text-align: center">{{ article.sub_headline }}</h4>
-        <br>
         <p>{{ article.body|safe }}</p>
     </div>
     <!-- end of post -->
