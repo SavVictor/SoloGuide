@@ -1547,16 +1547,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (min-width: 768px) {
-.twitter--content {
-    max-width: 100%;
-}
-
-@media (min-width: 576px) {
-.twitter--content {
-    max-width: 100%;
-}
-
-@media (min-width: 768px) {
   #contact .contact-address,
   #contact .contact-phone,
   #contact .contact-email {
@@ -1894,13 +1884,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-left: auto;
 }
 
-.twitter--content{
-  width: 50%;
-  height: 600px;
-  margin-right: auto;
-  margin-left: auto;
-  overflow: scroll;
-}
 
 /* INTRO EACH ARTICLE */
 
@@ -2057,4 +2040,53 @@ body.mobile-nav-active #mobile-nav-toggle {
 #intro--each .about-btn:hover {
   background: #f82249;
   color: #fff;
+}
+
+
+/* TWITTER CONTENT */
+
+.twitter--content{
+  width: 50%;
+  height: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: scroll;
+}
+
+@media (max-width: 767px){
+  .twitter--content{
+    width: 100%;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 574px){
+  .twitter--content{
+    width: 100%;
+    overflow: auto;
+  }
+}
+
+@media (min-width: 460px) {
+    .article-meta{
+        display: inline-block;
+    }
+}
+
+@media (max-width: 460px) {
+    .author-pic{
+        display: inline-block;
+    }
+}
+
+@media (max-width: 460px) {
+    .author--text{
+        display: inline-block;
+    }
+}
+
+@media (max-width: 460px) {
+  .article-meta {
+    float: right;
+  }
 }
