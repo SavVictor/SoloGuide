@@ -2090,3 +2090,9 @@ body.mobile-nav-active #mobile-nav-toggle {
     float: right;
   }
 }
+
+@media (max-width: 740px) {
+  #guide {
+    overflow: auto;
+  }
+}

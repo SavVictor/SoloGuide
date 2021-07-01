@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+    <!--==========================
+        Intro Section
+     ============================-->
+      <section id="intro--each"
+             style="background: url({{ article.image.url }}) top center; background-size: cover;">
+      <div class="intro-container wow fadeIn">
+        <h1 class="mb-4 pb-0">Your guide is under review</h1>
+        <p class="mb-4 pb-0">It will be published momentarily</p>
+        <a href="{% url 'blog:home' %}" class="about-btn scrollto">Home</a>
+    </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <!--==========================
+        Intro Section
+     ============================-->
+      <section id="intro" style="height: 115vh;">
+        <div class="intro-container wow fadeIn" style="">
+          <div class="jumbotron" id="guide" style="">
+              <p class="title" style="color: black;">Guide Creation</p>
+                <form style="float: none; box-shadow: none; margin: 0;" method="POST">
+                    {% csrf_token %}
+                    {{ form.media }}
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-12">
+                            <label>Title</label>
+                            {% render_field form.headline class='form-control input' %}
+                        </div>
+                    </div>
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-12">
+                            <label>Sub title</label>
+                            {% render_field form.sub_headline class='form-control input' %}
+                        </div>
+                    </div>
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-12">
+                            <label>Guide cover photo: </label>
+                            {% render_field form.image class='form-control-filet' %}
+                        </div>
+                    </div>
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-12">
+
+                            {% render_field form.body class='form-control' %}
+                        </div>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </form>
+                </div>
+          </div>
+        </div>
+      </section>
+{% endblock %}

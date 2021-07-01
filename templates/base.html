@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     -->
     <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <!-- Libraries CSS Files -->
     <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
@@ -49,13 +50,17 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="{% url 'blog:home' %}">Home</a></li>
-          <li><a href="{% url 'blog:news' %}">News</a></li>
+          <li><a href="#">News</a></li>
           <li><a href="{% url 'blog:articles' %}">Guides</a></li>
           <li><a href="#schedule">Builds</a></li>
-          <!--
-          <li class="buy-tickets"><a href="#buy-tickets">Login</a></li>
-          <li class="buy-tickets"><a href="#buy-tickets">Sign Up</a></li>
-          -->
+
+          {% if request.user.is_authenticated %}
+            <li class="buy-tickets"><a href="#">{{request.user|title}}</a></li>
+            <li class="buy-tickets"><a href="{% url 'blog:logout' %}">Logout</a></li>
+          {% else %}
+            <li class="buy-tickets"><a href="{% url 'blog:login' %}">Login</a></li>
+            <li class="buy-tickets"><a href="{% url 'blog:register' %}">Sign Up</a></li>
+          {% endif %}
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

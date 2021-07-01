@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!--==========================
+        Intro Section
+     ============================-->
+    <section id="intro">
+      <div class="intro-container wow fadeIn">
+        <form method="POST" style="box-shadow: none;">
+            {% csrf_token %}
+            <p>Guide: {{ article.headline }}</p>
+            <p>Are your sure you want to delete this guide? </p>
+            <input  class="about-btn" style="color: black;" type="submit" value="Delete" />
+            <a href="{% url 'blog:articles' %}" class="about-btn scrollto">Back</a>
+        </form>
+      </div>
+    </section>
+{% endblock %}

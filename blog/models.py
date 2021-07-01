@@ -8,16 +8,11 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=200, blank=True, null=True)
-    last_name = models.CharField(max_length=200, blank=True, null=True)
-    email = models.CharField(max_length=200)
     profile_pic = models.ImageField(null=True, blank=True, upload_to="profile")
     bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        name = str(self.first_name)
-        if self.last_name:
-            name += ' ' + str(self.last_name)
+        name = str(self.user)
         return name
 
 
@@ -35,8 +30,8 @@ class Tag(models.Model):
 
 class Article(models.Model):
     author = models.ForeignKey(
-        Profile, on_delete=models.CASCADE, related_name='author')
-
+        User, on_delete=models.CASCADE, related_name='usernames'
+    )
     headline = models.CharField(max_length=200)
     sub_headline = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to="article", default="placeholder.png")
@@ -64,4 +59,3 @@ class Article(models.Model):
 
     def __str__(self):
         return self.headline
-
